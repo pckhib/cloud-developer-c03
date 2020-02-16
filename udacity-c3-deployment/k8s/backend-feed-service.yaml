@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend-feed
+  labels:
+    service: backend-feed
+    version: v1
+spec:
+  selector:
+    service: backend-feed
+  ports:
+  - name: "8080"
+    port: 8080
+    targetPort: 8080
