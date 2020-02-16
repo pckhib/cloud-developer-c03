@@ -1,0 +1,40 @@
+version: "3"
+services: 
+    reverseproxy:
+        image: pckhib/reverseproxy
+        ports: 
+            - 8080:8080
+        restart: always
+        depends_on: 
+            - backend-feed
+            - backend-user
+    backend-feed:
+        image: pckhib/udacity-restapi-feed
+        volumes:
+            - $HOME/.aws:/root/.aws
+        environment: 
+            POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+            POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD
+            POSTGRESS_DB: $POSTGRESS_DB
+            POSTGRESS_HOST: $POSTGRESS_HOST
+            AWS_REGION: $AWS_REGION
+            AWS_PROFILE: $AWS_PROFILE
+            AWS_BUCKET: $AWS_BUCKET
+            JWT_SECRET: $JWT_SECRET
+    backend-user:
+        image: pckhib/udacity-restapi-user
+        volumes:
+            - $HOME/.aws:/root/.aws
+        environment: 
+            POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+            POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD
+            POSTGRESS_DB: $POSTGRESS_DB
+            POSTGRESS_HOST: $POSTGRESS_HOST
+            AWS_REGION: $AWS_REGION
+            AWS_PROFILE: $AWS_PROFILE
+            AWS_BUCKET: $AWS_BUCKET
+            JWT_SECRET: $JWT_SECRET
+    frontend:
+        image: pckhib/udacity-frontend:local
+        ports: 
+            - 8100:80
