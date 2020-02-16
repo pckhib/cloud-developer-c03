@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    service: frontend
+    version: v1
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        service: frontend
+    spec:
+      containers:
+      - image: pckhib/udacity-frontend:local
+        name: frontend
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "64Mi"
+          limits:
+            cpu: "500m"
+            memory: "1024Mi"
+        ports:
+          - containerPort: 80
+      restartPolicy: Always
