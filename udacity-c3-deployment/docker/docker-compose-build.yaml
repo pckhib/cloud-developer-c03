@@ -1,0 +1,18 @@
+version: "3"
+services:
+  reverseproxy:
+    build:
+      context: .
+    image: pckhib/reverseproxy
+  backend-feed:
+    build:
+      context: ../../udacity-c3-restapi-feed
+    image: pckhib/udacity-restapi-feed
+  backend-user:
+    build:
+      context: ../../udacity-c3-restapi-user
+    image: pckhib/udacity-restapi-user
+  frontend:
+    build:
+      context: ../../udacity-c3-frontend
+    image: pckhib/udacity-frontend:local
