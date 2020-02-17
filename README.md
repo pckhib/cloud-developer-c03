@@ -14,7 +14,15 @@
 
 - **Docker** - [Get Started](https://www.docker.com/get-started)
 
-### Deploy
+### Build images
+The images required for the application are deployed to [Docker HUB](https://hub.docker.com/u/pckhib).
+
+Alternatively they can be build locally.
+```shell
+$ docker-compose -f udacity-c3-deployment/docker/docker-compose-build.yaml build --parallel
+```
+
+### Run application
 The application can be started on a local system using Docker Compose.
 ```shell
 $ docker-compose -f udacity-c3-deployment/docker/docker-compose.yaml up
@@ -25,6 +33,5 @@ $ docker-compose -f udacity-c3-deployment/docker/docker-compose.yaml up
 
 ### Prerequisites
 
-- **Docker** - [Get Started](https://www.docker.com/get-started)
 - **kubectl** - [Installation](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - **kops** - [Installation](https://github.com/kubernetes/kops#installing) and [AWS Quick-Start](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md)
