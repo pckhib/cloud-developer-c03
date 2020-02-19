@@ -6,6 +6,7 @@ metadata:
     service: frontend
     version: v1
 spec:
+  replicas: 2
   strategy:
     rollingUpdate:
       maxSurge: 1
