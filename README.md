@@ -91,7 +91,7 @@ $ kubectl apply -f backend-feed-b-service.yaml
 $ kubectl apply -f backend-feed-b-deployment.yaml
 ```
 
-Afterwards update the reverseproxy.
+The nginx config uses `split_clients` in order to distribute the requests to both services. Therefore update the reverseproxy.
 ```shell
 $ kubectl apply -f reverseproxy-ab-deployment.yaml
 ```
