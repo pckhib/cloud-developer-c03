@@ -2,8 +2,12 @@ version: "3"
 services:
   reverseproxy:
     build:
-      context: .
+      context: ./reverseproxy
     image: pckhib/reverseproxy
+  reverseproxy-ab:
+    build:
+      context: ./reverseproxy-ab
+    image: pckhib/reverseproxy:ab
   backend-feed:
     build:
       context: ../../udacity-c3-restapi-feed
