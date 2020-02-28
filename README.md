@@ -44,7 +44,7 @@ cd udacity-c3-deployment/k8s
 ### Prerequisites
 
 - **kubectl** - [Installation](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-- **kops** - [Installation](https://github.com/kubernetes/kops#installing) and [AWS Quick-Start](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md)
+- **kops** (optional) - [Installation](https://github.com/kubernetes/kops#installing) and [AWS Quick-Start](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md)
 
 To check if your cluster is up an running, run ```kubectl get nodes``` or ```kops validate cluster```.
 
